@@ -28,7 +28,6 @@ create table if not exists part(
   manufacturer_id integer,
   type varchar(50) not null,
   name varchar(50) not null,
-  manufacter_code integer,
   warranty_length date,
   primary key (part_id),
   foreign key (manufacturer_id)
