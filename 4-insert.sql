@@ -249,93 +249,93 @@ values
 insert into listing
     (user_id, car_id, part_id, asking_price, location,
     description, date_added, views_amount,
-    production_date, mileage, license_number)
+    production_date, mileage, color, license_number)
 values
     (2, 1, null, 3000000, 'London',
     'Good car', '2009-10-23', 105,
-    '2008-09-12', 10000, 'Е239ЕР');
+    '2008-09-12', 10000, 'red', 'Е239ЕР');
 
 insert into listing
     (user_id, car_id, part_id, asking_price, location,
     description, date_added, views_amount,
-    production_date, mileage, license_number)
+    production_date, mileage, color, license_number)
 values
     (1, 3, null, 2500000, 'Saint-P',
     'I sell this car', '2005-10-22', 99,
-    '2010-07-11', 4500, 'К930ЕР');
+    '2010-07-11', 4500, 'carbon', 'К930ЕР');
 
 insert into listing
     (user_id, car_id, part_id, asking_price, location,
     description, date_added, views_amount,
-    production_date, mileage, license_number)
+    production_date, mileage, color, license_number)
 values
     (1, 8, null, 500, 'Saint-P',
     'Lada', '2001-09-11', 200,
-    '1998-11-13', 50000, 'А228УЕ');
+    '1998-11-13', 50000, 'silver', 'А228УЕ');
 
 insert into listing
     (user_id, car_id, part_id, asking_price, location,
     description, date_added, views_amount,
-    production_date, mileage, license_number)
+    production_date, mileage, color, license_number)
 values
     (3, 4, null, 2000, 'Saint-P',
     'I sell this car', '2015-10-27', 111,
-    '2014-07-30', 1000, 'А229РК');
+    '2014-07-30', 1000, 'black', 'А229РК');
 
 insert into listing
     (user_id, car_id, part_id, asking_price, location,
     description, date_added, views_amount,
-    production_date, mileage, license_number)
+    production_date, mileage, color, license_number)
 values
     (4, null, 1, 10000, 'Taganrog',
     'I sell this part','2005-09-20', 170,
-    '2003-02-07', null, null);
+    '2003-02-07', null, null, null);
 
 insert into listing
     (user_id, car_id, part_id, asking_price, location,
     description, date_added, views_amount,
-    production_date, mileage, license_number)
+    production_date, mileage, color, license_number)
 values
     (5, null, 3, 200, 'Ostin',
     'I sell this part', '2009-09-24', 170,
-    '2007-05-23', null, null);
+    '2007-05-23', null, null, null);
 
 insert into listing
     (user_id, car_id, part_id, asking_price, location,
     description, date_added, views_amount,
-    production_date, mileage, license_number)
+    production_date, mileage, color, license_number)
 values
     (6, null, 2, 13000, 'Munchester',
     'I sell this part', '2010-05-14', 182,
-    '2007-11-21', null, null);
+    '2007-11-21', null, null, null);
 
 insert into listing
     (user_id, car_id, part_id, asking_price, location,
     description, date_added, views_amount,
-    production_date, mileage, license_number)
+    production_date, mileage, color, license_number)
 values
     (7, null, 5, 3000,
     'Adler', 'I sell this part',
     '2009-03-25', 135,
-    '2007-10-13', null, null);
+    '2007-10-13', null, null, null);
 
 insert into listing
     (user_id, car_id, part_id, asking_price, location,
     description, date_added, views_amount,
-    production_date, mileage, license_number)
+    production_date, mileage, color, license_number)
 values
     (8, 7, null, 2000, '',
     'I sell this car', '2009-09-24', 170,
-    '2007-05-23', 1100, 'Х230ХХ');
+    '2007-05-23', 1100, 'silver', 'Х230ХХ');
 
 insert into listing
     (user_id, car_id, part_id, asking_price, location,
     description, date_added, views_amount,
-    production_date, mileage, license_number)
+    production_date, mileage, color, license_number)
 values
     (9, null, 6, 200, 'Gorgorod',
-    'I sell this car', '2015-03-30', 127,
-    '2013-07-12', null, null);
+    'I sell this part', '2015-03-30', 127,
+    '2013-07-12', null, null, null);
 
 --- sale
 
@@ -366,13 +366,3 @@ insert into sale
   (listing_id, buyer_id, sale_date, agreed_price)
 values
   (7, 3, '2010-07-12', 12000);
-
-/*
-drop table users cascade;
-drop table manufacturer cascade;
-drop table car cascade;
-drop table part cascade;
-drop table car_x_part cascade;
-drop table listing  cascade;
-drop table sale cascade;
-*/
