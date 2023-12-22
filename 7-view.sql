@@ -42,3 +42,13 @@ select cr.type as type,
 from db_car_classified.car as cr
 group by type
 having avg(cr.fuel_consumption) >= 20;
+
+--- parts
+
+drop view if exists parts;
+create view parts as
+select p.type as type,
+    count(p.part_id) as cnt
+from db_car_classified.part as p
+where p.warranty_length > current_date
+group by type;
