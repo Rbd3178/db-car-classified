@@ -10,5 +10,5 @@ drop view if exists clients;
 create view clients as
 select u.user_id as user_id,
        u.name as users_name,
-       overlay(u.phone::text placing '+7(***)***-**-' from 2 for 9) as phone
+       overlay(u.phone::text placing '*****' from 6 for 5) as phone
 from db_car_classified.users as u;
