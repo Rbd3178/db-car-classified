@@ -27,7 +27,7 @@ where
 order by
 	l.asking_price asc;
 	
---- получить среднюю цену на запчасти для BMW X5 по выбранным регионам, отсортировать по возрастанию
+--- получить среднюю цену на запчасти для BMW X5 по выбранным регионам в открытых объявлениях, отсортировать по возрастанию
 
 select
 	l.location,
@@ -43,14 +43,38 @@ on
 inner join car c 
 on
 	cxp.car_id = c.car_id
+left join sale s 
+on
+	s.listing_id = l.listing_id
 where
 	c.name = 'BMW X5'
+	and s.listing_id is null
 group by
 	l.location
 having
 	l.location in ('London', 'Ostin', 'Munchester', 'Gorgorod')
 order by
 	average_part_cost_BMW_X5 asc;
+
+--- Найти общий объем продаж на площадке за каждый месяц
+
+with grouped as (
+select
+	date_trunc('month', sale_date) as sales_month,
+	sum(agreed_price) as monthly_sum
+from
+	sale
+group by
+	sales_month
+order by
+	sales_month asc)
+select
+	to_char(sales_month, 'YYYY-Month') as sales_month, --- пришлось сделать так, потому что он неправильно упорядочивает приведенную к строке дату
+	monthly_sum
+from
+	grouped;
+
+--- 
 
 
 
