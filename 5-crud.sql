@@ -46,4 +46,25 @@ update users
 set email = 'banana_cat_228@mail.ru'
 where name like 'Mark';
 
---- delete - coming soon)
+--- delete user 1 (and active listings from him)
+
+update sale
+set buyer_id = null
+where buyer_id = 1;
+
+with unclosed as (
+  select l.listing_id
+  from listing l
+  left join sale s
+  on s.listing_id = l.listing_id
+  where user_id = 1 and s.listing_id is null
+)
+delete from listing
+using unclosed
+where unclosed.listing_id = listing.listing_id; --- delete active listings
+
+update listing
+set user_id = null
+where user_id = 1;
+
+delete from users where user_id = 1;
