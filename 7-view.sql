@@ -22,3 +22,12 @@ select s.sale_id as sale_id,
     s.agreed_price as agreed_price
 from db_car_classified.sale as s
 order by agreed_price desc;
+
+--- listings
+
+drop view if exists listings;
+create view listings as
+select l.location as city,
+       count(l.listing_id) as id
+from db_car_classified.listing as l
+group by location; --- cnt listings per city
