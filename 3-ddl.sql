@@ -54,16 +54,17 @@ create table users(
 
 create table if not exists listing (
   listing_id serial,
-  user_id integer not null,
+  user_id integer, --- нет ограничения not null, т.к. хотим иметь возможность удалять user но при этом сохранять те объявления, по которым были сделки
   car_id integer,
   part_id integer,
   asking_price decimal not null,
   location varchar (50),
-  description varchar (50),
+  description varchar (200),
   date_added date,
   views_amount integer,
   production_date date,
   mileage integer,
+  color varchar (20),
   license_number varchar (10) unique check (license_number similar to '([АВЕКМНОРСТУХ]{1})([0-9]{3})([АВЕКМНОРСТУХ]{2})'),
   primary key (listing_id),
   foreign key (user_id)
@@ -77,7 +78,7 @@ create table if not exists listing (
 create table if not exists sale(
   sale_id serial,
   listing_id integer not null,
-  buyer_id integer,
+  buyer_id integer, --- нет ограничения not null по той же причине что и в listing
   sale_date date,
   agreed_price decimal,
   primary key (sale_id),
