@@ -34,7 +34,7 @@ select name, phone
 from users
 where location like 'SAINT-P';
 
---- update warranty_length for steering mirror
+--- update warranty_length for mirror
 
 update part
 set warranty_length = '01.01.2025'
