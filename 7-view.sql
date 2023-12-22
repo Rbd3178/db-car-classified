@@ -31,3 +31,14 @@ select l.location as city,
        count(l.listing_id) as id
 from db_car_classified.listing as l
 group by location; --- cnt listings per city
+
+--- cars
+
+drop view if exists cars;
+create view cars as
+select cr.type as type,
+    count(cr.car_id) as cnt,
+    avg(cr.fuel_consumption) as avg_consumption
+from db_car_classified.car as cr
+group by type
+having avg(cr.fuel_consumption) >= 20;
