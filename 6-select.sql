@@ -60,7 +60,7 @@ having
 order by
 	average_part_cost_BMW_X5 asc;
 
---- Найти общий объем продаж на площадке за каждый месяц
+/* Найти общий объем продаж на площадке за каждый месяц */
 
 with grouped as (
 select
@@ -130,9 +130,9 @@ on
 where
 	u.user_id = '3'
 order by
-	s.buyer_id,
 	s.sale_date;
 
+/* Я постарался написать интересные запросы :) */
 
 
 
