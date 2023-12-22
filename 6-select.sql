@@ -79,7 +79,7 @@ from
 	grouped;
 
 /* Вывести список названий машин, отсортированный по убыванию количества купленных запчастей, 
-и средее количество купленных запчастей по производителю для каждой машины 
+и средее количество купленных запчастей по производителю для каждой машины;
 начиная с некоторой даты*/
 
 select 
@@ -111,6 +111,28 @@ group by
 	m.name
 order by
 	parts_sold_cnt desc;
+
+/* Вывести для выбранного пользователя накапливающуюся сумму покупок */
+select
+	u.name,
+	l.listing_id,
+	s.agreed_price,
+	s.sale_date,
+	SUM(s.agreed_price) over (partition by s.buyer_id order by s.sale_date) as cumulative_sum
+from
+	sale s
+inner join users u 
+on
+	s.buyer_id = u.user_id
+inner join listing l 
+on
+	s.listing_id = l.listing_id
+where
+	u.user_id = '3'
+order by
+	s.buyer_id,
+	s.sale_date;
+
 
 
 
